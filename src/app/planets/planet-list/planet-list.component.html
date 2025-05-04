@@ -1,0 +1,23 @@
+<div>
+  <h2>Star Wars Planets</h2>
+
+  <input type="text" placeholder="🔍 Search planets..." (input)="onSearch($event)" />
+
+  @let state = store.planetState();
+
+  @if (state.loading) {
+    <div class="loading">Loading...</div>
+  }
+
+  @if (state.error) {
+    <div class="error">{{ state.error }}</div>
+  }
+
+  @if (!state.loading && !state.error && state.planets) {
+    <ul>
+      @for (planet of state.planets; track planet.uid) {
+        <li>{{ planet.name }}</li>
+      }
+    </ul>
+  }
+</div>

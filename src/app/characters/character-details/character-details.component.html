@@ -1,0 +1,31 @@
+@let state = characterStore.characterState();
+
+@if (state.loading) {
+  <div class="loading">Loading character details...</div>
+}
+
+@if (state.error) {
+  <div class="error">{{ state.error }}</div>
+}
+
+@if (!state.loading && !state.error && state.character?.properties; as character) {
+  <div class="character-details">
+    <h2>{{ character.name }}</h2>
+
+    <div class="details-box">
+      <p><strong>Gender:</strong> {{ character.gender }}</p>
+      <p><strong>Birth year:</strong> {{ character.birth_year }}</p>
+      <p><strong>Films:</strong></p>
+      <ul>
+        @for (film of filmsForCharacter(); track film.uid) {
+          <li>
+            <strong>{{ film.properties.title }}</strong>
+            <span>{{ film.properties.release_date | date: 'dd MMM YYYY' }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <button routerLink="/characters" class="back-button">← Back to list</button>
+  </div>
+}

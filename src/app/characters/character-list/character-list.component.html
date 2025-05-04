@@ -1,0 +1,21 @@
+<div>
+  <h2>Star Wars Characters</h2>
+
+  @let state = store.charactersState();
+
+  @if (state.loading) {
+    <div class="loading">Loading...</div>
+  }
+
+  @if (state.error) {
+    <div class="error">{{ state.error }}</div>
+  }
+
+  @if (!state.loading && !state.error && state.characters) {
+    <ul>
+      @for (character of state.characters; track character.uid) {
+        <li [routerLink]="[character.uid]">{{ character.name }}</li>
+      }
+    </ul>
+  }
+</div>
