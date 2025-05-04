@@ -1,5 +1,5 @@
 import {Component, inject, signal} from '@angular/core';
-import {PlanetStore} from '../../store/planet.store';
+import {PlanetStore} from '../../stores/planet.store';
 import {takeUntilDestroyed, toObservable} from '@angular/core/rxjs-interop';
 import {debounceTime, distinctUntilChanged, tap} from 'rxjs';
 

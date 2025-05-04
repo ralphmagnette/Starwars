@@ -1,9 +1,9 @@
 import {Component, computed, effect, inject} from '@angular/core';
-import {CharacterStore} from '../../store/character.store';
+import {CharacterStore} from '../../stores/character.store';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import {toObservable, toSignal} from '@angular/core/rxjs-interop';
 import {map} from 'rxjs';
-import {FilmStore} from '../../store/film.store';
+import {FilmStore} from '../../stores/film.store';
 import {DatePipe} from '@angular/common';
 
 @Component({

@@ -1,5 +1,5 @@
 import {Component, effect, inject} from '@angular/core';
-import {CharacterStore} from '../../store/character.store';
+import {CharacterStore} from '../../stores/character.store';
 import {RouterLink} from '@angular/router';
 
 @Component({
